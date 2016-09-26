@@ -28,7 +28,7 @@ Once you have a container to use for building `tmate-slave`, you can tell it to
 do so:
 
 ```BASH
-docker run -v $(pwd)/nexus:/nexus heckman/tmate-slave-build
+docker run -v $(pwd)/nexus:/nexus theckman/tmate-slave-build
 ```
 
 Because we're building a binary that needs to be shipped somewhere, we're using
