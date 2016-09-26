@@ -19,4 +19,4 @@ RUN mkdir /build /src
 
 COPY build_tmate-slave.sh /
 
-CMD ["/build_tmate-slave.sh"]
+CMD ["/bin/bash", "-c", "/build_tmate-slave.sh"]
