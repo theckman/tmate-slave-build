@@ -1,21 +1,24 @@
-FROM debian:sid
+FROM alpine:edge
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y build-essential \
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    apk update && \
+    apk upgrade && \
+    apk add --no-cache build-base \
+                       ca-certificates \
+                       bash \
+                       wget \
                        git \
-                       pkg-config \
+                       openssh \
+                       libc6-compat \
                        automake \
                        autoconf \
-                       cmake \
-                       zlib1g-dev \
+                       zlib-dev \
                        libevent-dev \
-                       libmsgpack-dev \
-                       libncurses-dev \
+                       msgpack-c-dev \
+                       ncurses-dev \
+                       libexecinfo-dev \
                        libssh-dev && \
-    apt-get clean -y
-
-RUN mkdir /build /src
+    mkdir /src
 
 COPY build_tmate-slave.sh /
 
